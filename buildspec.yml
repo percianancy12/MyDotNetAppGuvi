@@ -5,10 +5,15 @@ phases:
     runtime-versions:
       dotnet: 8.0
     commands:
-      - echo Installing .NET dependencies...
+      - echo Installing dependencies...
   build:
     commands:
-      - dotnet publish -c Release -o published
+      - echo Building the project...
+      - dotnet build
+  post_build:
+    commands:
+      - echo Publishing the project...
+      - dotnet publish -c Release -o published/
 
 artifacts:
   files:
