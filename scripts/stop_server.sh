@@ -1,2 +1,3 @@
 #!/bin/bash
-pkill -f MyDotNetApp.dll || true
+echo "Stopping MyDotNetApp..."
+pkill -f MyDotNetApp.dll || echo "App not running"
