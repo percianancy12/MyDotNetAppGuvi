@@ -4,10 +4,13 @@ phases:
   install:
     runtime-versions:
       dotnet: 8.0
+    commands:
+      - echo "Installing zip utility..."
+      - apt-get update && apt-get install -y zip
   build:
     commands:
       - dotnet publish -c Release -o published/
-      - Compress-Archive -Path appspec.yml, scripts, published -DestinationPath MyDotNetAppBundle.zip
+      - zip -r MyDotNetAppBundle.zip appspec.yml scripts/ published/
 
 artifacts:
   files:
