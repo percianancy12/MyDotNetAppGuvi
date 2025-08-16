@@ -16,3 +16,7 @@ artifacts:
   files:
     - MyDotNetAppBundle.zip
   discard-paths: yes
+post_build:
+  commands:
+    - echo "Listing files in build root:"
+    - ls -al
