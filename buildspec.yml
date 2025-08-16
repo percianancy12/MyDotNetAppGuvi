@@ -10,12 +10,13 @@ phases:
   build:
     commands:
       - dotnet publish -c Release -o published/
-      - zip -r MyDotNetAppBundle.zip appspec.yml scripts published
 
 artifacts:
   files:
-    - MyDotNetAppBundle.zip
-  discard-paths: yes
+    - appspec.yml
+    - published/**/* 
+    - scripts/**/* 
+  discard-paths: no
 post_build:
   commands:
     - echo "Listing files in build root:"
